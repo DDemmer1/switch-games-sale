@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/")
@@ -45,6 +47,7 @@ public class HomeController {
         List<Record> records = repository.findAll();
         model.addAttribute("records", records);
         model.addAttribute("insertRecord", new Record());
+        Logger.getAnonymousLogger().log(Level.ALL,"Test");
         return "home";
     }
 
