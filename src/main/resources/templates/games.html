@@ -21,12 +21,12 @@
         <html xmlns:th="http://www.thymeleaf.org">
         <head>
             <title>Nintendo Switch Game Sales</title>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <!-- Latest compiled and minified CSS -->
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 
             <!-- Optional theme -->
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
         </head>
 <body>
 <div class="container">
@@ -34,24 +34,10 @@
         <h1>Nintendo Switch Games on Sale</h1>
     </div>
 
+    <tr th:each="game : ${games}">
+        <td th:text="${game.title}">Some text</td>
+    </tr>
 
-    <hr />
-    <div class="row">
-        <div class="col-sm-12">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Games</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="game : ${games}">
-                    <td th:text="${game.title}">Some text</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 </div>
 
 <!-- Latest compiled and minified JavaScript -->
