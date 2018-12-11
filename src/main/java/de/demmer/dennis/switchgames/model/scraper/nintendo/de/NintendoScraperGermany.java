@@ -52,10 +52,10 @@ public class NintendoScraperGermany implements NintendoScraper {
             boolean digitalVersion = arr.getJSONObject(i).getBoolean("digital_version_b");
             boolean physicalVersion = arr.getJSONObject(i).getBoolean("physical_version_b");
 
-            String numberOfPlayers = arr.getJSONObject(i).getString("players_to");
+            String numberOfPlayers = String.valueOf(arr.getJSONObject(i).getInt("players_to"));
             String ageRating = arr.getJSONObject(i).getString("pretty_agerating_s");
             String excerpt = arr.getJSONObject(i).getString("excerpt");
-            float price = Float.valueOf(arr.getJSONObject(i).getString("price_lowest_f"));
+            float price = (float) arr.getJSONObject(i).getDouble("price_lowest_f");
 
             Game game = new Game(title,publisher,url,nintendoClub,releaseDay,saleUntil,imageURL,priceDiscountpercentage,categories,digitalVersion,physicalVersion,numberOfPlayers,ageRating,excerpt,price);
 
