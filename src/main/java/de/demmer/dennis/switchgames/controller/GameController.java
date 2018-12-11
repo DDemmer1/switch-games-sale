@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,7 +24,7 @@ public class GameController {
 
     private String dbNaming = "src\\main\\resources\\json\\germany\\" + LocalDate.now().toString() + "-germany.json";
 
-
+    @RequestMapping(method = RequestMethod.GET)
     public String home(ModelMap model) {
         Updater updater = new Updater();
         updater.updateJSONdb();
