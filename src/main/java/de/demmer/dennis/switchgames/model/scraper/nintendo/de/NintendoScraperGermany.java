@@ -36,11 +36,12 @@ public class NintendoScraperGermany implements NintendoScraper {
             String title = arr.getJSONObject(i).getString("title");
             String publisher = arr.getJSONObject(i).getString("publisher");
             String url = arr.getJSONObject(i).getString("url");
-            boolean nintendoClub = Boolean.valueOf(arr.getJSONObject(i).getString("club_nintendo"));
+            boolean nintendoClub = arr.getJSONObject(i).getBoolean("club_nintendo");
             String releaseDay = arr.getJSONObject(i).getString("pretty_date_s");
             String saleUntil = arr.getJSONObject(i).getString("change_date");
             String imageURL = arr.getJSONObject(i).getString("image_url_sq_s");
-            String priceDiscountpercentage = arr.getJSONObject(i).getString("price_discount_percentage_f");
+//            String priceDiscountpercentage = arr.getJSONObject(i).getString("price_discount_percentage_f");
+            String priceDiscountpercentage = String.valueOf(arr.getJSONObject(i).getDouble("price_discount_percentage_f"));
 
             List<String> categories = new ArrayList<>();
             for (int j = 0; j < arr.getJSONObject(i).getJSONArray("pretty_game_categories_txt").length(); j++) {
@@ -48,8 +49,8 @@ public class NintendoScraperGermany implements NintendoScraper {
                 categories.add(categorie);
             }
 
-            boolean digitalVersion = Boolean.valueOf(arr.getJSONObject(i).getString("digital_version_b"));
-            boolean physicalVersion = Boolean.valueOf(arr.getJSONObject(i).getString("physical_version_b"));
+            boolean digitalVersion = arr.getJSONObject(i).getBoolean("digital_version_b");
+            boolean physicalVersion = arr.getJSONObject(i).getBoolean("physical_version_b");
 
             String numberOfPlayers = arr.getJSONObject(i).getString("players_to");
             String ageRating = arr.getJSONObject(i).getString("pretty_agerating_s");
