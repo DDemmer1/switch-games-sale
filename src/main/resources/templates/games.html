@@ -15,23 +15,24 @@
         <h1>Nintendo Switch Games on Sale</h1>
     </div>
 
-    <hr/>
     <div class="row">
         <div class="col-sm-12">
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Games</th>
-                    </tr>
+                <tr>
+                    <td>Titel</td>
+                    <td>Metacritic Bewertung</td>
+                    <td>Preis</td>
+                    <td>Rabatt (%)</td>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="game : ${games}">
-                        <td th:text="${game.title}">Some text</td>
-                        <td th:text="${game.price}">Some text</td>
-                        <td th:text="${game.priceDiscountpercentage}">Some text</td>
-                        <td th:text="${game.metacriticScore}">Some text</td>
-
-                    </tr>
+                <tr th:each="game : ${games}">
+                    <td th:text="${game.title}">Some text</td>
+                    <td th:text="${game.metacriticScore}">Some text</td>
+                    <td th:text="${game.price}">Some text</td>
+                    <td th:text="${game.priceDiscountpercentage}">Some text</td>
+                </tr>
                 </tbody>
             </table>
         </div>

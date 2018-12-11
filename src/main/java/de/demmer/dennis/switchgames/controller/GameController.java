@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/games")
+@RequestMapping("/")
 public class GameController {
 
     private String dbNaming = "src\\main\\resources\\json\\germany\\" + LocalDate.now().toString() + "-germany.json";
