@@ -25,8 +25,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="games : ${game}">
+                    <tr th:each="game : ${games}">
                         <td th:text="${game.title}">Some text</td>
+                        <td th:text="${game.price}">Some text</td>
+                        <td th:text="${game.priceDiscountpercentage}">Some text</td>
+                        <td th:text="${game.metacriticScore}">Some text</td>
+
                     </tr>
                 </tbody>
             </table>
