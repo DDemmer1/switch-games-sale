@@ -68,7 +68,7 @@ public class NintendoScraperGermany implements NintendoScraper {
 
     private void saveJSON(JSONObject object) {
         try {
-            File currentJSONFile = new File("src\\main\\resources\\json\\germany\\" + LocalDate.now().toString() + "-germany-switch-game-sale.json");
+            File currentJSONFile = new File("src\\main\\resources\\json\\germany\\" + LocalDate.now().toString() + "-RAW.json");
             if (!currentJSONFile.exists()) {
                 FileWriter fw = new FileWriter(currentJSONFile);
                 fw.write(object.toString());

@@ -1,4 +1,4 @@
-package de.demmer.dennis.switchgames;
+package de.demmer.dennis.switchgames.model.database;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
