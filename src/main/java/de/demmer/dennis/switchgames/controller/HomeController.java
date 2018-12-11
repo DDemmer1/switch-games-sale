@@ -48,7 +48,7 @@ public class HomeController {
         model.addAttribute("records", records);
         model.addAttribute("insertRecord", new Record());
         Logger.getAnonymousLogger().log(Level.ALL,"Test");
-        return "home";
+        return "games";
     }
 
     @RequestMapping(method = RequestMethod.POST)
