@@ -1,5 +1,7 @@
 package de.demmer.dennis.switchgames.model.scraper.nintendo;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class Game {
@@ -168,6 +170,16 @@ public class Game {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+
+    public String getOldPrice(){
+
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        String s = df.format(price / (100f-Float.valueOf(priceDiscountpercentage)) *100);
+
+        return s;
     }
 
 

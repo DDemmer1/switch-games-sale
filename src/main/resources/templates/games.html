@@ -38,30 +38,30 @@
                 <!--Old Price-->
                 <div class="row">
                     <div class="col">
-                        <p>old price</p>
+                        <p th:text="${game.getOldPrice()} + '€'">old price</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <!--new price-->
-                    <div class="col">
+                    <div class="col-2">
                         <p th:text="${game.price}+ '€'">New Price</p>
                     </div>
 
                     <!--percentage-->
-                    <div class="col">
-                        <p th:text="${game.priceDiscountpercentage + '%'}">Discount perentage</p>
+                    <div class="col-2">
+                        <p th:text="'(-'+${game.priceDiscountpercentage + '%)'}">Discount perentage</p>
                     </div>
 
                     <!--metascore-->
-                    <div class="col-10">
+                    <div class="col-8">
                         <p th:text="${game.metacriticScore}">Metascore</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <p th:text="${game.saleUntil}">Angebot bis 14.12.18</p>
+                        <p th:text="${'Angebot gilt bis: ' + game.saleUntil}">Angebot bis 14.12.18</p>
                     </div>
                 </div>
 
