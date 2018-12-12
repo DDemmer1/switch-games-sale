@@ -1,24 +1,35 @@
-
-div.old-price{
-    text-decoration: line-through;
-    font-size: 60%;
+body{
+    background-color: azure;
 }
 
 
+a{
+    text-decoration: underline;
+}
+
+div.old-price{
+    text-decoration: line-through;
+    font-size: 90%;
+}
+
 div.new-price{
     color: red;
-    font-size: 20pt;
+    font-size: 28pt;
     font-weight: bold;
 }
 
 div.price-discount{
     font-size: 20pt;
     font-weight: bold;
+    color: gray;
+    padding-top: 1%;
 }
 
 div.metacritic-score{
     font-size: 20pt;
     font-weight: bold;
+    padding-top: 3%;
+
 }
 
 p.metacritic-border{
