@@ -1,8 +1,3 @@
-body{
-    background-color: azure;
-}
-
-
 a{
     text-decoration: underline;
 }
@@ -36,4 +31,5 @@ p.metacritic-border{
     display:inline;
     border: black solid;
     border-radius: 10%;
+    background-color: lightgreen;
 }
