@@ -3,6 +3,7 @@ package de.demmer.dennis.switchgames.model.scraper.nintendo.de;
 import de.demmer.dennis.switchgames.model.scraper.nintendo.Game;
 import de.demmer.dennis.switchgames.model.scraper.nintendo.NintendoScraper;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class NintendoScraperGermany implements NintendoScraper {
 
 
     @Override
-    public List<Game> getCurrentSales() {
+    public List<Game> getCurrentSales() throws JSONException {
 
         List<Game> games = new ArrayList<>();
 
@@ -52,7 +53,12 @@ public class NintendoScraperGermany implements NintendoScraper {
             boolean digitalVersion = arr.getJSONObject(i).getBoolean("digital_version_b");
             boolean physicalVersion = arr.getJSONObject(i).getBoolean("physical_version_b");
 
-            String numberOfPlayers = String.valueOf(arr.getJSONObject(i).getInt("players_to"));
+            String numberOfPlayers ="";
+            try {
+                numberOfPlayers = String.valueOf(arr.getJSONObject(i).getInt("players_to"));
+            } catch(JSONException js){
+                System.out.println("JSE");
+            }
             String ageRating = arr.getJSONObject(i).getString("pretty_agerating_s");
             String excerpt = arr.getJSONObject(i).getString("excerpt");
             float price = (float) arr.getJSONObject(i).getDouble("price_lowest_f");

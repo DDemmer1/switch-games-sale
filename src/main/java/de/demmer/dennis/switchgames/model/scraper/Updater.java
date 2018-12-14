@@ -30,6 +30,7 @@ public class Updater {
         NintendoScraperFactory nsFactory = new NintendoScraperFactory();
         NintendoScraper germanNintendoScraper = nsFactory.getScraper(Locale.GERMANY);
 
+
         List<Game> germanGameSales = germanNintendoScraper.getCurrentSales();
 
         MetacriticScraper mcs = new MetacriticScraper();
