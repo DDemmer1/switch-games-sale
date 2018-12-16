@@ -44,8 +44,8 @@ public class Game {
     }
 
 
-    public String getMetacriticScore() {
-        return metacriticScore;
+    public Integer getMetacriticScore() {
+        return Integer.valueOf(metacriticScore);
     }
 
     public void setMetacriticScore(String metacriticScore) {
@@ -108,8 +108,8 @@ public class Game {
         this.imageURL = imageURL;
     }
 
-    public String getPriceDiscountpercentage() {
-        return priceDiscountpercentage;
+    public int getPriceDiscountpercentage() {
+        return Double.valueOf(priceDiscountpercentage).intValue();
     }
 
     public void setPriceDiscountpercentage(String priceDiscountpercentage) {
@@ -182,6 +182,15 @@ public class Game {
         return s;
     }
 
+    public String prettyChangeDate(){
+
+//        2018-11-23 08:15:44 Uhr
+
+        saleUntil.replace("T"," ").replace("Z","");
+
+        return "";
+    }
+
 
     @Override
     public String toString() {
@@ -201,6 +210,7 @@ public class Game {
                 ", ageRating='" + ageRating + '\'' +
                 ", excerpt='" + excerpt + '\'' +
                 ", price=" + price +
+                ", metacriticScore='" + metacriticScore + '\'' +
                 '}';
     }
 }

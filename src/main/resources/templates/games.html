@@ -9,74 +9,67 @@
     <link rel="stylesheet" href="style.css"/>
 
 
-
 </head>
 <body>
-<div class="container-fluid">
-    <div class="page-header">
-        <h1 style="font-size: 25pt">Nintendo Switch Sale</h1>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">Nintendo Switch Sales</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
-    <hr/>
+</nav>
 
 
-    <div th:each="game,iterStat : ${games}">
-        <div class="row">
-            <div class="col">
-                <!--Picture-->
+<div class="container-fluid">
+
+    <div style="margin-bottom: 5rem" class="row" th:each="game, stat : ${games}" th:if="${stat.odd}">
+
+        <div class="col-6 col-md-4 col-xl-3" th:with="game1=${games.get(stat.index)}">
+
+            <div>
                 <div class="row">
-                    <div class="col">
-                        <img style="width: 100%" th:src="${game.imageURL}" src="http://cdn01.nintendo-europe.com//media//images//11_square_images//games_18//nintendo_switch_download_software//SQ_NSwitchDS_Alteric_image500w.jpg"/>
-                    </div>
+                    <div class="col-8"></div>
+                    <div class="col-3 discount" th:text="${'-' +game1.getPriceDiscountpercentage() + '%'}"></div>
                 </div>
-
-                <!--Game Title-->
+                <img style="width: 100%" th:src="${game1.imageURL}"/>
+                <div class="game-title" th:text="${game1.title}"></div>
                 <div class="row">
-                    <div class="col">
-                        <h1 th:inline="text">[[${iterStat.index+1} + '. ']]<a th:text="${game.title}" th:href="${'https://www.nintendo.de/' + game.url}">Title</a></h1>
-                    </div>
+                    <div class="col-4" th:text="${game1.price + '€'}"></div>
+                    <div class="col-8 old-price" th:text="${game1.getOldPrice() + '€'}"></div>
                 </div>
+                <div th:if="${game1.getMetacriticScore() &lt; 1}" class="tbd">tbd</div>
+                <div th:if="${game1.getMetacriticScore() &gt; 1}" th:text="${game1.metacriticScore}" class="metacritic-score" ></div>
+            </div>
 
-                <!--Old Price-->
-                <div class="row old-price">
-                    <div class="col">
-                        <p th:text="${game.getOldPrice()} + '€'">old price</p>
-                    </div>
-                </div>
+        </div>
 
+
+        <div class="col-6 col-md-4 col-xl-3" th:if="${stat.index + 1 &lt; games.size()}"
+             th:with="game2=${games.get(stat.index + 1)}">
+            <div>
                 <div class="row">
-                    <!--new price-->
-                    <div class="col-4 new-price">
-                        <p th:text="${game.price}+ '€'">New Price</p>
-                    </div>
-
-                    <!--percentage-->
-                    <div class="col-4 price-discount">
-                        <p th:text="'(-'+${game.priceDiscountpercentage + '%)'}">Discount perentage</p>
-                    </div>
-
-                    <!--metascore-->
-                    <div class="col-4 metacritic-score">
-                        <p class="metacritic-border" th:text="${game.metacriticScore}">Metascore</p>
-                    </div>
+                    <div class="col-8"></div>
+                    <div class="col-3 discount" th:text="${'-' +game2.getPriceDiscountpercentage() + '%'}"></div>
                 </div>
-
+                <img style="width: 100%" th:src="${game2.imageURL}"/>
+                <div class="game-title" th:text="${game2.title}"></div>
                 <div class="row">
-                    <div class="col">
-                        <div th:text="${game.excerpt}">Desciption</div>
-                        <a th:href="${'https://www.nintendo.de/'+ game.url}">mehr</a>
-                    </div>
+                    <div class="col-4" th:text="${game2.price+ '€'}"></div>
+                    <div class="col-8 old-price" th:text="${game2.getOldPrice()+ '€'}"></div>
                 </div>
-
-                <!--<div class="row">-->
-                    <!--<div class="col">-->
-                        <!--<img style="width: 20%" src="img/amazon.png"/>-->
-                    <!--</div>-->
-                <!--</div>-->
+                <div th:if="${game2.getMetacriticScore() &lt; 1}" class="tbd">tbd</div>
+                <div th:if="${game2.getMetacriticScore() &gt; 1}" class="metacritic-score" th:text="${game2.metacriticScore}"></div>
             </div>
         </div>
-        <br/>
-        <hr/>
     </div>
+
 
 </div>
 

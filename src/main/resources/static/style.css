@@ -1,35 +1,44 @@
-a{
-    text-decoration: underline;
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
 }
+
 
 div.old-price{
-    text-decoration: line-through;
-    font-size: 90%;
-}
-
-div.new-price{
-    color: red;
-    font-size: 28pt;
-    font-weight: bold;
-}
-
-div.price-discount{
-    font-size: 20pt;
-    font-weight: bold;
-    color: gray;
-    padding-top: 1%;
+    text-decoration: #ff4829 line-through;
+    /*color: orangered;*/
 }
 
 div.metacritic-score{
-    font-size: 20pt;
+    display:inline;
+    border-radius: 20%;
+    background-color: limegreen;
+    color: white;
     font-weight: bold;
-    padding-top: 3%;
+    padding: 2% 4% 3% 4%;
+}
+
+
+div.discount{
+    margin: 0 0 0 0;
+    padding: 0 0 0 2%;
+    border-radius: 10%;
+    display: inline;
+    color: white;
+    background-color: orangered;
 
 }
 
-p.metacritic-border{
+div.game-title{
+    font-weight: bold;
+}
+
+
+div.tbd{
     display:inline;
-    border: black solid;
-    border-radius: 10%;
-    background-color: lightgreen;
+    border-radius: 20%;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    padding: 2% 4% 3% 4%;
 }
