@@ -26,6 +26,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
         Updater updater = new Updater();
         updater.updateJSONdb();
+        //test comment
     }
 
 }
