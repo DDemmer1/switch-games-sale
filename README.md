@@ -11,7 +11,10 @@ Currently only the German sale market is scraped by the app
 
 TODO:
 
--fronted for non-mobile devices
--sorting by name/discount percantage/price
--implementing search
--implemtenting database
+- frontend for non-mobile devices
+
+- sorting by name/discount percentage/price
+
+- implementing search
+
+- implementing database
