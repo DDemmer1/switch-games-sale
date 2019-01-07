@@ -68,7 +68,15 @@ public class NintendoScraperGermany implements NintendoScraper {
             } catch (JSONException js) {
                 System.out.println("JSE");
             }
-            String ageRating = arr.getJSONObject(i).getString("pretty_agerating_s");
+
+            String ageRating ="";
+            try{
+                ageRating = arr.getJSONObject(i).getString("pretty_agerating_s");
+
+            } catch (JSONException js){
+
+            }
+            
             String excerpt = arr.getJSONObject(i).getString("excerpt");
             float price = (float) arr.getJSONObject(i).getDouble("price_lowest_f");
 
