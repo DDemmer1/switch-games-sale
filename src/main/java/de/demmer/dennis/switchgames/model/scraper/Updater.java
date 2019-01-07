@@ -20,6 +20,7 @@ public class Updater {
     private String dbNaming = "src\\main\\resources\\json\\germany\\" + LocalDate.now().toString() + "-germany.json";
 
 
+
     public void updateJSONdb(){
         if (isUpToDate()){
             System.out.println("DB is up to date");

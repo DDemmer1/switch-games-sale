@@ -34,8 +34,17 @@ public class NintendoScraperGermany implements NintendoScraper {
 
         for (int i = 0; i < arr.length(); i++) {
 
+
+
             String title = arr.getJSONObject(i).getString("title");
-            String publisher = arr.getJSONObject(i).getString("publisher");
+
+            String publisher ="";
+            try {
+                publisher = arr.getJSONObject(i).getString("publisher");
+            } catch (JSONException js) {
+                System.out.println("JSE");
+            }
+
             String url = arr.getJSONObject(i).getString("url");
             boolean nintendoClub = arr.getJSONObject(i).getBoolean("club_nintendo");
             String releaseDay = arr.getJSONObject(i).getString("pretty_date_s");
@@ -53,17 +62,17 @@ public class NintendoScraperGermany implements NintendoScraper {
             boolean digitalVersion = arr.getJSONObject(i).getBoolean("digital_version_b");
             boolean physicalVersion = arr.getJSONObject(i).getBoolean("physical_version_b");
 
-            String numberOfPlayers ="";
+            String numberOfPlayers = "";
             try {
                 numberOfPlayers = String.valueOf(arr.getJSONObject(i).getInt("players_to"));
-            } catch(JSONException js){
+            } catch (JSONException js) {
                 System.out.println("JSE");
             }
             String ageRating = arr.getJSONObject(i).getString("pretty_agerating_s");
             String excerpt = arr.getJSONObject(i).getString("excerpt");
             float price = (float) arr.getJSONObject(i).getDouble("price_lowest_f");
 
-            Game game = new Game(title,publisher,url,nintendoClub,releaseDay,saleUntil,imageURL,priceDiscountpercentage,categories,digitalVersion,physicalVersion,numberOfPlayers,ageRating,excerpt,price);
+            Game game = new Game(title, publisher, url, nintendoClub, releaseDay, saleUntil, imageURL, priceDiscountpercentage, categories, digitalVersion, physicalVersion, numberOfPlayers, ageRating, excerpt, price);
 
             games.add(game);
         }
