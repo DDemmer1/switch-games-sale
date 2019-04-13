@@ -23,6 +23,7 @@ public class Game {
     private float price;
 
     private String metacriticScore;
+    private String metacriticURL;
 
 
     public Game(String title, String publisher, String url, boolean nintendoClub, String releaseDay, String saleUntil, String imageURL, String priceDiscountpercentage, List<String> categories, boolean digitalVersion, boolean physicalVersion, String numberOfPlayers, String ageRating, String excerpt, float price) {
@@ -172,6 +173,13 @@ public class Game {
         this.price = price;
     }
 
+    public String getMetacriticURL() {
+        return metacriticURL;
+    }
+
+    public void setMetacriticURL(String metacriticURL) {
+        this.metacriticURL = metacriticURL;
+    }
 
     public String getOldPrice(){
 

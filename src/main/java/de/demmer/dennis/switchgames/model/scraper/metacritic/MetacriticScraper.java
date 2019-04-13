@@ -50,6 +50,13 @@ public class MetacriticScraper {
         return mcScore;
     }
 
+    public String getMetacriticURL(String gameName){
+
+
+        return "https://www.metacritic.com/game/switch/";
+
+    }
+
     private String getMCScore(Document doc, String query){
 
         for (Element e: doc.body().getElementsByAttribute("itemprop")) {

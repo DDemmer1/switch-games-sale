@@ -17,7 +17,7 @@ import java.util.Locale;
 
 public class Updater {
 
-    private String dbNaming = "src\\main\\resources\\json\\germany\\" + LocalDate.now().toString() + "-germany.json";
+    private String dbNaming = "src/main/resources/json/germany/" + LocalDate.now().toString() + "-germany.json";
 
 
 
@@ -44,6 +44,7 @@ public class Updater {
                 e.printStackTrace();
             }
             game.setMetacriticScore(mc);
+            game.setMetacriticURL(mcs.getMetacriticURL(game.getTitle()));
         }
 
 
@@ -78,6 +79,8 @@ public class Updater {
 
     private boolean isUpToDate() {
         File currentJSONFile = new File(dbNaming);
+
+        System.out.println(currentJSONFile.getAbsolutePath());
 
         return currentJSONFile.exists();
     }
