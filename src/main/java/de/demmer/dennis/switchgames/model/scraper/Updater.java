@@ -72,7 +72,7 @@ public class Updater {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+        System.out.println("404's: " + mcs.counter404);
         System.err.println("DB UPDATED");
 
     }

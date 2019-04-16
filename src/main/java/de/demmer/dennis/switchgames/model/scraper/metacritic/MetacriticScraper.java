@@ -11,9 +11,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MetacriticScraper {
 
+    public int counter404 = 0;
 
     public String getMetacritic(String gameName) throws IOException {
 
@@ -30,6 +35,7 @@ public class MetacriticScraper {
         int status = con.getResponseCode();
         System.out.println("Status: " + status);
         if(status== 404){
+            counter404++;
             return "-1";
         }
 
@@ -53,7 +59,7 @@ public class MetacriticScraper {
     public String getMetacriticURL(String gameName){
 
 
-        return "https://www.metacritic.com/game/switch/";
+        return "https://www.metacritic.com/game/switch/"+normalizeQuery(gameName);
 
     }
 
@@ -73,8 +79,26 @@ public class MetacriticScraper {
 
 
 
-    private String normalizeQuery(String query){
-        query = query.toLowerCase().replace(" & ", "-");
+    public String normalizeQuery(String query){
+
+        Pattern pattern = Pattern.compile("[A-Z][.]");
+        Matcher matcher = pattern.matcher(query);
+
+        while (matcher.find()){
+//            System.out.println(matcher.start());
+//            System.out.println(matcher.end());
+//            System.out.println(query.substring(matcher.start(),matcher.end()));
+            StringBuilder stringBuilder = new StringBuilder(query);
+            stringBuilder.replace(matcher.start(),matcher.start()+1,(query.charAt(matcher.start())+"").toLowerCase());
+            stringBuilder.replace(matcher.end()-1,matcher.end(),"");
+            query = stringBuilder.toString();
+//            System.out.println(query);
+            matcher = pattern.matcher(query);
+
+        }
+
+        query = query.toLowerCase().replace("&", "-");
+        query = query.toLowerCase().replace(" - ", "-");
         query = query.toLowerCase().replace(": ", "-");
         query = query.replace(". ", "-");
         query = query.replace(", ", "-");
@@ -82,7 +106,11 @@ public class MetacriticScraper {
         query = query.replace(" ", "-");
         query = query.replace(".","-");
         query = query.replace("™","");
+        query = query.replace("®","");
         query = query.replace(":","-");
+        query = query.replace("?","");
+        query = query.replace("ō","o");
+
         return query;
     }
 
