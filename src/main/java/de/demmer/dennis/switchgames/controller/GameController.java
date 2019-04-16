@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/")
 public class GameController {
 
-    private String dbNaming = "src/main/resources/json/germany/" + LocalDate.now().toString() + "-germany.json";
+    private String dbNaming = LocalDate.now().toString() + "-germany.json";
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(ModelMap model) {

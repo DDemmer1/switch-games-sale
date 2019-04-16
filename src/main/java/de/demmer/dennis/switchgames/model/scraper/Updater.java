@@ -17,7 +17,8 @@ import java.util.Locale;
 
 public class Updater {
 
-    private String dbNaming = "src/main/resources/json/germany/" + LocalDate.now().toString() + "-germany.json";
+//    private String dbNaming = "src/main/resources/json/germany/" + LocalDate.now().toString() + "-germany.json";
+    private String dbNaming = LocalDate.now().toString() + "-germany.json";
 
 
 
