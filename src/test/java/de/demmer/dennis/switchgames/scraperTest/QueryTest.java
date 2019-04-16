@@ -52,4 +52,15 @@ public class QueryTest {
     }
 
 
+    @Test
+    public void printMeta(){
+
+
+        for ( Game game:GameListParser.parseGameList()) {
+            System.out.println(game.getTitle()+ ": " + game.getMetacriticScore());
+        }
+
+    }
+
+
 }

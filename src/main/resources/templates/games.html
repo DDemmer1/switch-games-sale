@@ -35,7 +35,7 @@
         <a href="/" class="btn btn-secondary">Metacritic score</a>
     </div>
 
-    <div style="margin-bottom: 5rem" class="row" th:each="game, stat : ${games}" th:if="${stat.odd}">
+    <div style="margin-bottom: 5rem" class="row" th:each="game, stat : ${games}" th:if="${stat.index==0 || stat.odd }">
 
         <div class="col-6 col-md-4 col-xl-3" th:with="game1=${games.get(stat.index)}">
 
@@ -51,14 +51,16 @@
                     <div class="col-8 old-price" th:text="${game1.getOldPrice() + '€'}"></div>
                 </div>
                 <a th:href="${game1.getMetacriticURL()}"><div th:if="${game1.getMetacriticScore() &lt; 1}" class="col-4 tbd">tbd</div>
-                <div th:if="${game1.getMetacriticScore() &gt; 1}" th:text="${game1.metacriticScore}" class="metacritic-score" ></div>
+                    <div th:if="${game1.getMetacriticScore() gt 70}" class="metacritic-score-100" th:text="${game1.metacriticScore}"></div>
+                    <div th:if="${game1.getMetacriticScore() le 70 and game1.getMetacriticScore() gt 50}" class="metacritic-score-70" th:text="${game1.metacriticScore}"></div>
+                    <div th:if="${game1.getMetacriticScore() le 50 and game1.getMetacriticScore() gt 0}" class="metacritic-score-50" th:text="${game1.metacriticScore}"></div>
                 </a>
             </div>
 
         </div>
 
 
-        <div class="col-6 col-md-4 col-xl-3" th:if="${stat.index + 1 &lt; games.size()}"
+        <div class="col-6 col-md-4 col-xl-3" th:if="${stat.index !=0 and stat.index + 1 &lt; games.size()}"
              th:with="game2=${games.get(stat.index + 1)}">
             <div>
                 <div class="row">
@@ -72,7 +74,9 @@
                     <div class="col-8 old-price" th:text="${game2.getOldPrice()+ '€'}"></div>
                 </div>
                 <div th:if="${game2.getMetacriticScore() &lt; 1}" class="tbd">tbd</div>
-                <div th:if="${game2.getMetacriticScore() &gt; 1}" class="metacritic-score" th:text="${game2.metacriticScore}"></div>
+                <div th:if="${game2.getMetacriticScore() gt 70}" class="metacritic-score-100" th:text="${game2.metacriticScore}"></div>
+                <div th:if="${game2.getMetacriticScore() le 70 and game2.getMetacriticScore() gt 50}" class="metacritic-score-70" th:text="${game2.metacriticScore}"></div>
+                <div th:if="${game2.getMetacriticScore() le 50 and game2.getMetacriticScore() gt 0}" class="metacritic-score-50" th:text="${game2.metacriticScore}"></div>
             </div>
         </div>
     </div>

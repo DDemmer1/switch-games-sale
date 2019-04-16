@@ -9,10 +9,31 @@ div.old-price{
     /*color: orangered;*/
 }
 
-div.metacritic-score{
+div.metacritic-score-100{
     display:inline;
     border-radius: 20%;
     background-color: limegreen;
+    color: white;
+    font-weight: bold;
+    padding: 2% 4% 3% 4%;
+}
+
+
+div.metacritic-score-70{
+    display:inline;
+    border-radius: 20%;
+    background-color: #ffd700;
+    color: white;
+    font-weight: bold;
+    padding: 2% 4% 3% 4%;
+}
+
+
+
+div.metacritic-score-50{
+    display:inline;
+    border-radius: 20%;
+    background-color: #d10000;
     color: white;
     font-weight: bold;
     padding: 2% 4% 3% 4%;
