@@ -5,6 +5,8 @@ import de.demmer.dennis.switchgames.model.scraper.metacritic.MetacriticScraper;
 import de.demmer.dennis.switchgames.model.scraper.nintendo.Game;
 import de.demmer.dennis.switchgames.model.scraper.nintendo.NintendoScraper;
 import de.demmer.dennis.switchgames.model.scraper.nintendo.NintendoScraperFactory;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,6 +17,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
+@Component
 public class Updater {
 
 //    private String dbNaming = "src/main/resources/json/germany/" + LocalDate.now().toString() + "-germany.json";
@@ -22,6 +25,7 @@ public class Updater {
 
 
 
+    @Scheduled(fixedDelay = 1000*60*10)
     public void updateJSONdb(){
         if (isUpToDate()){
             System.out.println("DB is up to date");

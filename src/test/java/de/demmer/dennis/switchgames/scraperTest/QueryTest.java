@@ -46,8 +46,6 @@ public class QueryTest {
 
         normalizedGameTitle.forEach(game -> System.out.println(game));
 
-//88-heroes-98-heroes-edition
-//        holy-potatoes!-a-weapon-shop!
 
     }
 
